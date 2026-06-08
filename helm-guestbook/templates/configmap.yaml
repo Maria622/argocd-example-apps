@@ -1,0 +1,9 @@
+apiVersion: v1
+data:
+  color: rojo
+  env: pruebas
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2026-06-08T13:31:03Z"
+  name: guessbook-configmap
+  namespace: default
