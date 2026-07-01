@@ -1,1 +1,34 @@
-
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-leer-configmap
+  namespace: default
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  # Número de reintentos antes de considerar que el Job falló
+  backoffLimit: 2 
+  template:
+    spec:
+      containers:
+        - name: contenedor-lector
+          image: alpine:latest
+          # Comando que imprime las variables y se duerme por 5 segundos
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              echo "=== Leyendo datos del ConfigMap ==="
+              echo "Host de la DB: $DB_HOST"
+              echo "Puerto de la DB: $DB_PORT"
+              echo "Nombre de la DB: $DB_NAME"
+              echo "Usuario de la DB: $DB_USER"
+              echo "==================================="
+              echo "Durmiendo por 5 segundos..."
+              sleep 5
+              echo "Job finalizado con éxito."
+          # Inyecta todas las llaves del ConfigMap como variables de entorno
+          envFrom:
+            - configMapRef:
+                name: db-config
+      # restartPolicy debe ser Never o OnFailure para los Jobs
+      restartPolicy: Never
