@@ -24,7 +24,7 @@ spec:
               echo "Usuario de la DB: $DB_USER"
               echo "==================================="
               echo "Durmiendo por 5 segundos..."
-              sleep 5
+              sleeeep 5
               echo "Job finalizado con éxito."
           # Inyecta todas las llaves del ConfigMap como variables de entorno
           envFrom:
