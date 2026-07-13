@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: job-leer-configmap
-  namespace: default
+  namespace: production
   annotations:
     argocd.argoproj.io/sync-wave: "30"
 spec:
