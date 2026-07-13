@@ -4,7 +4,7 @@ metadata:
   name: db-config
   namespace: default # Opcional: cámbialo si usas otro namespace
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "20"
 data:
   db_host: "postgres"
   db_port: "5432"
