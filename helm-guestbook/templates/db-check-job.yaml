@@ -4,7 +4,7 @@ metadata:
   name: job-leer-configmap
   namespace: production
   annotations:
-    argocd.argoproj.io/sync-wave: "30"
+    argocd.argoproj.io/sync-wave: "40"
 spec:
   # Número de reintentos antes de considerar que el Job falló
   backoffLimit: 2 
