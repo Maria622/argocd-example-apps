@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: {{ template "helm-guestbook.fullname" . }}
   annotations:
-    argocd.argoproj.io/sync-wave: "40"
+    argocd.argoproj.io/sync-wave: "30"
   labels:
     app: {{ template "helm-guestbook.name" . }}
     chart: {{ template "helm-guestbook.chart" . }}
